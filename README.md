@@ -1,8 +1,8 @@
-# umom - Universal Music Operations Module
+# umom - ultimate manager of music
 
 ## Description
 
-Opinionated (!!!!) ultimate music normalizator script. After installation it
+Opinionated (!!!!) music tags normalizator script. After installation it
 will help you make some operations **recursively through folders**:
 
 <!-- * Converts .flac files to .mp3 (I don't care about lossless using airpods) -->
