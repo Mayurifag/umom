@@ -12,7 +12,7 @@ folder and it will make some operations for you **recursively through folders**:
 * Removes unwanted characters from ID3 tags for Windows 10+ compatibility
 * Trims unnecessary spaces from tags and filenames
 * Removes almost all unneded tags which I don't use (including genre, year,
-  etc.)
+  etc.). Only artist, title, album and picture left.
 
 Implementation:
 

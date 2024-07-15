@@ -50,6 +50,7 @@ var allowedFrames = map[string]struct{}{
 	"TPE1": {}, // "Lead performer(s)/Soloist(s)"
 	"TALB": {}, // "Album/Movie/Show title"
 	"TIT2": {}, // "Title/song name/content description"
+	"APIC": {}, // "Attached picture"
 }
 
 // Removes all tags except for artist, album and song name
