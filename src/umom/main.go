@@ -63,6 +63,11 @@ func processDirectory(folderpath string) {
 
 // TODO: process ffmpeg convertible files like flac, wav, etc.
 func processFile(filepath string) (newFilepath string) {
+	if filepath[len(filepath)-4:] != ".mp3" {
+		// log.Printf("Skipping %s: not an mp3 file\n", filepath)
+		return
+	}
+
 	fmt.Printf("Processing %s\n", filepath)
 	err := processors.ProcessMP3FileTags(filepath)
 	if err != nil {
