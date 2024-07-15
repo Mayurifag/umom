@@ -50,7 +50,7 @@ func TestProcessMP3FileName(t *testing.T) {
 	})
 
 	t.Run("NonExistingFile", func(t *testing.T) {
-		_, err := processors.ProcessMP3FileName(filepath.Join(tempDir, "non_existing.mp3"))
+		_, err := processors.ProcessMP3FileName(filepath.Join(tempDir, "f.mp3"))
 		if err == nil {
 			t.Error("Expected error for non-existing file, got nil")
 		}
