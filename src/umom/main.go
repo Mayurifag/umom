@@ -69,7 +69,7 @@ func processFile(filepath string) (newFilepath string) {
 		return
 	}
 
-	fmt.Printf("Processing %s\n", filepath)
+	// fmt.Printf("Processing %s\n", filepath)
 	err := processors.ProcessMP3FileTags(filepath)
 	if err != nil {
 		log.Printf("Error converting %s: %v", filepath, err)
