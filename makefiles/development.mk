@@ -7,3 +7,7 @@ tidy:
 PHONY: test ## Run tests
 test:
 	@cd $(PROJECT_PATH) && go test -v ./...
+
+PHONY: run ## Run the project
+run:
+	@cd $(PROJECT_PATH) && go run main.go $(ARGS)
