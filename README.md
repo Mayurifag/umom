@@ -19,7 +19,7 @@ Implementation:
 * Uses and requires `ffmpeg` for converting `.flac` and other formats to `.mp3`
 * Works kinda fast being written using Golang (or lets hope so, I didn't
   benchmark it)
-* Tested as much as possible (run `make test` to test it)
+* Integration tested via `_test.go` files (run `make test` to test it)
 * Should work on Windows, MacOS and Linux (didn't test it lul)
 * Works *exactly how I need it*, so I won't merge features I don't like. Though,
   forking is fine, but it should comply LGPLv3 license, as considered in LICENSE
