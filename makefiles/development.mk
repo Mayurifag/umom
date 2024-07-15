@@ -8,6 +8,6 @@ PHONY: test ## Run tests
 test:
 	@cd $(PROJECT_PATH) && go test -v ./...
 
-PHONY: run ## Run the project
+PHONY: run ## Run the project. Example: make run ARGS=$HOME/Desktop/test/
 run:
 	@cd $(PROJECT_PATH) && go run main.go $(ARGS)
