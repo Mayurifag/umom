@@ -28,7 +28,7 @@ func TestProcessMP3FileTags(t *testing.T) {
 	tag.SetTitle(" Xtal ")
 
 	comment := id3v2.CommentFrame{
-		Encoding:    id3v2.EncodingUTF8,
+		Encoding:    id3v2.EncodingUTF16,
 		Language:    "eng",
 		Description: "My opinion",
 		Text:        "I like this song!",
