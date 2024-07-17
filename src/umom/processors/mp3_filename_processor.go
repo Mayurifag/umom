@@ -9,28 +9,24 @@ import (
 )
 
 func ProcessMP3FileName(path string) (newFilePath string, err error) {
-	// Check if the file exists
 	if _, err := os.Stat(path); os.IsNotExist(err) {
 		return "", err
 	}
 
-	// Open the MP3 file
 	mp3File, err := id3v2.Open(path, id3v2.Options{Parse: true})
 	if err != nil {
 		return "", err
 	}
 
-	// Extract artist and title tags
 	artist := mp3File.Artist()
 	title := mp3File.Title()
 	mp3File.Close()
 
-	// Construct the new file name
 	newFileName := artist + " - " + title + ".mp3"
 	dir := filepath.Dir(path)
 	newFilePath = filepath.Join(dir, newFileName)
 
-	// Check if the new file name is the same as the existing one
+	// Skip remaming if the new file name is the same as the existing one
 	if path == newFilePath {
 		// log.Printf("Skipping renaming since %s already has the correct name.\n", path)
 		return path, nil

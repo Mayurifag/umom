@@ -51,7 +51,6 @@ func TestProcessMP3FileTags(t *testing.T) {
 	}
 	defer tag.Close()
 
-	// Define expected frames
 	expectedFrames := map[string]string{
 		"TPE1": "Aphex Twin",
 		"TIT2": "Xtal",
