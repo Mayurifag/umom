@@ -5,18 +5,22 @@
 Opinionated (!!!!) music tags normalizator script. After installation it
 will help you make some operations **recursively through folders**:
 
-<!-- * Converts .flac files to .mp3 (I don't care about lossless using airpods) -->
-* Makes tags ID3v2.3 UTF-8 (for compatibility with most players)
-* Fixes tags encoding to become UTF-8 (so cyrillic tags will be displayed
-  fine)
-* Removes unwanted characters from ID3 tags for Windows 10+ compatibility
+* Converts .flac files to .mp3 (I don't care about lossless using airpods)
+* Makes tags ID3v2.3 (for compatibility with most players)
+* Fixes tags encoding to become UTF-16 (so cyrillic tags will be displayed
+  fine everywhere)
+* Removes unwanted characters from ID3 tags for Windows filesystem compatibility
 * Trims unnecessary spaces from tags and filenames
 * Removes almost all unneded tags which I don't use (including genre, year,
-  etc.). Only artist, title, album and picture left.
+  etc.). **Only artist, title, album and picture left!**
+* Renames all files to `Artist - Title.mp3` format
+* Add special tag `UMOM` to all files to mark them as processed by this script.
+  This tag is used to prevent reprocessing of files, poor old man' caching
+  mechanism.
 
 Implementation:
 
-<!-- * Uses and requires `ffmpeg` for converting `.flac` and other formats to `.mp3` -->
+* Uses and requires `ffmpeg` for converting `.flac` to `.mp3`
 * Works kinda fast being written using Golang (or lets hope so, I didn't
   benchmark it)
 * Integration tested via `_test.go` files (run `make test` to test it)
@@ -24,11 +28,6 @@ Implementation:
 * Works *exactly how I need it*, so I won't merge features I don't like. Though,
   forking is fine, but it should comply LGPLv3 license, as considered in LICENSE
   file.
-
-## Why so weird name, bro?
-
-I don't know, I just like "umom" name and took chatgpt's idea what abbreviation
-may look like.
 
 ## How to use
 
@@ -41,9 +40,15 @@ $ umom /path/to/music_file.mp3 # processes single file
 ## Installation
 
 For a while I don't provide binaries, because I don't think project is mature.
-If you have Golang installed like in `./src/go.mod` and `~/.local/bin` folder in
-your `$PATH`, you can install it by running:
+If you have Golang installed version like in `./src/go.mod` and there is
+`~/.local/bin`  folder in your `$PATH`, you can install `umom` by running:
 
 ```sh
 $ make build-and-install
 ```
+
+I will write CI/CD release pipeline sometimes. Maybe.
+
+## Why so weird name, bro?
+
+I don't know, I just like "umom" name and got some abbreviation from my mind.
