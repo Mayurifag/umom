@@ -40,10 +40,7 @@ const checkVersion = "0.0.1test"
 // There is also UserDefinedTextFrame. TODO: research
 func isAlreadyProcessedMP3File(tag *id3v2.Tag) bool {
 	tf := tag.GetTextFrame(tag.CommonID(checkTag))
-	if tf.Text == checkVersion {
-		return true
-	}
-	return false
+	return tf.Text == checkVersion
 }
 
 var allowedFrames = map[string]struct{}{

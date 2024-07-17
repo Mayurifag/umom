@@ -8,6 +8,10 @@ PHONY: test ## Run tests
 test:
 	@cd $(PROJECT_PATH) && go test -v ./...
 
+PHONY: lint ## Run linter
+lint:
+	@cd $(PROJECT_PATH) && golangci-lint run
+
 PHONY: run ## Run the project. Example: make run ARGS=$HOME/Desktop/test/
 run:
 	@cd $(PROJECT_PATH) && go run main.go $(ARGS)
@@ -23,4 +27,4 @@ copy-to-usr-bin:
 	cp ./bin/umom ~/.local/bin
 
 PHONY: build-and-install ## Build and install the project into ~/.local/bin
-build-and-install: tidy test build copy-to-usr-bin
+build-and-install: tidy lint test build copy-to-usr-bin
