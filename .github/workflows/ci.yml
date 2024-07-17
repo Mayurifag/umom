@@ -6,8 +6,6 @@ name: Go CI/CD Pipeline
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 jobs:
   editorconfig:
@@ -21,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           globs: '**/*.md'
@@ -30,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -59,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5

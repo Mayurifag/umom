@@ -68,6 +68,7 @@ func normalizeTags(tag *id3v2.Tag) error {
 	return nil
 }
 
+// SUGGEST: should I add here \t\n\r\f\v characters?
 var forbiddenChars = regexp.MustCompile(`[<>:"/\\|?*]`) // Windows forbidden characters
 
 // Converts tags to UTF-16 encoding
