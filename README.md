@@ -32,9 +32,9 @@ Implementation:
 ## How to use
 
 ```sh
-$ umom # recursively processes files in current directory
-$ umom /path/to/music # recursively processes files in specified directory
-$ umom /path/to/music_file.mp3 # processes single file
+umom # recursively processes files in current directory
+umom /path/to/music # recursively processes files in specified directory
+umom /path/to/music_file.mp3 # processes single file
 ```
 
 ## Installation
@@ -44,7 +44,7 @@ If you have Golang installed version like in `./src/go.mod` and there is
 `~/.local/bin`  folder in your `$PATH`, you can install `umom` by running:
 
 ```sh
-$ make build-and-install
+make build-and-install
 ```
 
 I will write CI/CD release pipeline sometimes. Maybe.

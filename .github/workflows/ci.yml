@@ -1,0 +1,73 @@
+---
+name: Go CI/CD Pipeline
+
+"on":
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  editorconfig:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: editorconfig-checker/action-editorconfig-checker@main
+      - run: editorconfig-checker
+
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: '**/*.md'
+
+  go-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: './src/umom/go.mod'
+      - name: Run go test
+        run: |
+          cd ./src/umom
+          go test -v ./...
+
+  golangci:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: './src/umom/go.mod'
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: v1.59
+          working-directory: ./src/umom
+
+  yaml-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Run yamllint
+        run: yamllint .
