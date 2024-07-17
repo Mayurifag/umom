@@ -18,6 +18,9 @@ func ProcessMP3FileTags(path string) error {
 	if isAlreadyProcessedMP3File(tag) {
 		return nil
 	}
+
+	tag.SetVersion(3) // ID3v2.3 - so tags will be readen everywhere fine
+
 	if err := normalizeTags(tag); err != nil {
 		return err
 	}
@@ -33,9 +36,9 @@ func ProcessMP3FileTags(path string) error {
 }
 
 const checkTag = "Copyright message"
-const checkVersion = "0.0.1test"
+const checkVersion = "0.0.2test"
 
-// Checks if file has tag "Copyright message" with value "0.0.1test"
+// Checks if file has tag "Copyright message" with value "0.0.2test"
 // Didnt sure what to use, https://github.com/n10v/id3v2/blob/main/common_ids.go
 // There is also UserDefinedTextFrame. TODO: research
 func isAlreadyProcessedMP3File(tag *id3v2.Tag) bool {
@@ -91,7 +94,7 @@ func normalizeTextFrame(frameID string, textFrame id3v2.TextFrame) id3v2.TextFra
 	}
 }
 
-// Sets custom tag to indicate that the file has been processed (Copyright message: 0.0.1test)
+// Sets custom tag to indicate that the file has been processed (Copyright message: 0.0.2test)
 func setProcessedFlagTag(tag *id3v2.Tag) error {
 	textFrame := id3v2.TextFrame{
 		Encoding: id3v2.EncodingUTF16,

@@ -54,7 +54,7 @@ func TestProcessMP3FileTags(t *testing.T) {
 	expectedFrames := map[string]string{
 		"TPE1": "Aphex Twin",
 		"TIT2": "Xtal",
-		"TCOP": "0.0.1test",
+		"TCOP": "0.0.2test",
 	}
 
 	allFrames := tag.AllFrames()
