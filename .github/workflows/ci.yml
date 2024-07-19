@@ -6,6 +6,8 @@ name: Go CI/CD Pipeline
     branches:
       - main
   pull_request:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   editorconfig:
