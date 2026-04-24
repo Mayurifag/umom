@@ -1,4 +1,6 @@
-# umom - ultimate manager of music
+# DISCONTINUED - I use [mus](https://github.com/Mayurifag/mus) now (same with web interface and downloading)
+
+ultimate manager of music
 
 ## Description
 
